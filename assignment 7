@@ -1,3 +1,4 @@
+#1
 # data below for 1
 
 x <- c(16, 17, 13, 18, 12, 14, 19, 11, 11, 10)
@@ -6,10 +7,9 @@ y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
 # 1.1 Define the relationship model between the predictor and the response variable:
 # 1.2 Calculate the coefficients?
 
-# positive relationship between the predictor and the responce variable because of correlation results in 0.7282365.
-
 cor(x,y)
 # [1] 0.7282365
+# positive relationship between the predictor and the responce variable because of correlation results in 0.7282365.
 
 #2 
 
@@ -99,5 +99,43 @@ Mean   :20.09   Mean   :230.7   Mean   :146.7   Mean   :3.217
 Max.   :33.90   Max.   :472.0   Max.   :335.0   Max.   :5.424 
 
 #p-valueis higher than the threshold for significance, the summary and model shows that "hp" "wt" has significan relationship with "mpg" and "disp" has no significant relationship because p-value is greater than 0.05.
+
+#4 From our textbook pp. 110 Exercises # 5.1
+# With the rmr data set, plot metabolic rate versus body weight. Fit a linear regression to the relation.
+
+# 4.1 According to the fitted model, what is the predicted metabolic rate for a body weight of 70 kg? 
+# The data set rmr is R, make sure to install the book R package: ISwR. After installing the ISwR package, here is a simple illustration to the set of the problem.
+
+install.packages("ISwR")
+library(ISwR)
+ rmr.data<-data.frame(rmr)
+ rmr.data
+  rmr.regression <- lm(metabolic.rate ~ body.weight, data = rmr.data)
+ summary(rmr.regression)
+ 
+ 
+ Call:
+   lm(formula = metabolic.rate ~ body.weight, data = rmr.data)
+ 
+ Residuals:
+   Min      1Q  Median      3Q     Max 
+ -245.74 -113.99  -32.05  104.96  484.81 
+ 
+ Coefficients:
+   Estimate Std. Error t value Pr(>|t|)    
+ (Intercept) 811.2267    76.9755  10.539 2.29e-13 ***
+   body.weight   7.0595     0.9776   7.221 7.03e-09 ***
+   ---
+   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+ 
+ Residual standard error: 157.9 on 42 degrees of freedom
+ Multiple R-squared:  0.5539,	Adjusted R-squared:  0.5433 
+ F-statistic: 52.15 on 1 and 42 DF,  p-value: 7.025e-09
+ 
+#fitted linear regression relation y = 811.2267 + 7.0595x
+ 
+ x = 70
+y = 811.2267 + (7.0595 * x)
+y = [1] 1305.392 # the predicted metoblic rate for a body weight of 70kg is 1305.392
 
 
