@@ -1,23 +1,54 @@
-#1
 # data below for 1
-
+# 1.1 Define the relationship model between the predictor and the response variable:
 x <- c(16, 17, 13, 18, 12, 14, 19, 11, 11, 10)
 y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
 
-# 1.1 Define the relationship model between the predictor and the response variable:
-# 1.2 Calculate the coefficients?
+pr.data <- data.frame(x,y)
+pr.data
+pr.regression <- lm(y ~ x, data=pr.data)
 
+call:lm(formula = PEFR)
+
+Call:
+  lm(formula = y ~ x, data = pr.data)
+
+Coefficients:
+  (Intercept)            x  
+19.206        3.269 
+
+#positive relation between the predictor and the response
+# predictor is
+
+
+
+# ~ positive relationship between the predictor and the responce variable because of correlation results in 0.7282365.
+summary(pr.regression)
+Call:
+  lm(formula = y ~ x, data = pr.data)
+
+Residuals:
+  Min      1Q  Median      3Q     Max 
+-11.435  -7.406  -4.608   6.681  16.834 
+
+Coefficients:
+  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)   19.206     15.691   1.224   0.2558  
+x              3.269      1.088   3.006   0.0169 *
+  ---
+  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 10.48 on 8 degrees of freedom
+Multiple R-squared:  0.5303,	Adjusted R-squared:  0.4716 
+F-statistic: 9.033 on 1 and 8 DF,  p-value: 0.01693
+
+# 1.2 Calculate the coefficients?
 cor(x,y)
 # [1] 0.7282365
-# positive relationship between the predictor and the responce variable because of correlation results in 0.7282365.
 
 #2 
 
 discharge<-c(3.600, 1.800, 3.333, 2.283, 4.533, 2.883)
 waiting<-c(79, 54, 74, 62, 85, 55)
-
-
-
 
 # 2.1 Define the relationship model between the predictor and the response variable.
 # 2.2 Extract the parameters of the estimated regression equation with the coefficients function.
@@ -25,7 +56,7 @@ waiting<-c(79, 54, 74, 62, 85, 55)
 
 cor(x,y)
 # [1] 0.9013151
-# the relation between the predictor and the responce variable have very strong positive correlation 
+# ~ the relation between the predictor and the responce variable have very strong positive correlation 
 
 visit.data <- data.frame(discharge,waiting)
 visit.data
@@ -98,7 +129,7 @@ Mean   :20.09   Mean   :230.7   Mean   :146.7   Mean   :3.217
 3rd Qu.:22.80   3rd Qu.:326.0   3rd Qu.:180.0   3rd Qu.:3.610  
 Max.   :33.90   Max.   :472.0   Max.   :335.0   Max.   :5.424 
 
-#p-valueis higher than the threshold for significance, the summary and model shows that "hp" "wt" has significan relationship with "mpg" and "disp" has no significant relationship because p-value is greater than 0.05.
+# ~ p-valueis higher than the threshold for significance, the summary and model shows that "hp" "wt" has significan relationship with "mpg" and "disp" has no significant relationship because p-value is greater than 0.05.
 
 #4 From our textbook pp. 110 Exercises # 5.1
 # With the rmr data set, plot metabolic rate versus body weight. Fit a linear regression to the relation.
@@ -131,11 +162,8 @@ library(ISwR)
  Residual standard error: 157.9 on 42 degrees of freedom
  Multiple R-squared:  0.5539,	Adjusted R-squared:  0.5433 
  F-statistic: 52.15 on 1 and 42 DF,  p-value: 7.025e-09
- 
-#fitted linear regression relation y = 811.2267 + 7.0595x
+# ~ fitted linear regression y = 811.2267 + 7.0595x
  
  x = 70
 y = 811.2267 + (7.0595 * x)
-y = [1] 1305.392 # the predicted metoblic rate for a body weight of 70kg is 1305.392
-
-
+y = [1] 1305.392 # ~ the predicted metoblic rate for a body weight of 70kg is 1305.392
